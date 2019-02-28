@@ -1,18 +1,20 @@
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
+	// float: left;
 	width: 100%;
+	margin: auto;
 
 	ul {
 		display: none;
 		list-style: none;
-		margin: 0;
 		padding-left: 0;
+		width: fit-content;
+    margin: auto;
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
+			// float: left;
 			position: absolute;
 			top: 100%;
 			left: -999em;
@@ -50,8 +52,19 @@
 	}
 
 	li {
-		float: left;
-		position: relative;
+		display: inline-block;
+		// float: left;
+		// position: relative;
+		& + li {
+			margin-left: 16px;
+		}
+		a {
+			color: $color_header_text;
+			&:visited {
+				color: $color_header_text;
+			}
+			// color: $color_primary-contrast;
+		}
 
 		&:hover > a,
 		&.focus > a {
@@ -76,14 +89,14 @@
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+// @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
 	}
 	.main-navigation ul {
 		display: block;
 	}
-}
+// }
 
 .comment-navigation,
 .posts-navigation,

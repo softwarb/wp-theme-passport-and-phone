@@ -1,0 +1,21 @@
+.widget-area {
+  .widget {
+    h2 {
+      margin: $default-block-spacing 0 $half-block-spacing 0;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        display: block;
+        & + li {
+          margin-top: $half-block-spacing;
+        }
+      }
+    }
+  }
+
+
+
+}

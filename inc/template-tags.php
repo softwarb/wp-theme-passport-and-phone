@@ -51,6 +51,37 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_posted_by' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'wp_theme_passport_and_phone_tag_list' ) ) :
+	/**
+	 * Prints HTML with meta information for the current author.
+	 */
+	function wp_theme_passport_and_phone_tag_list() {
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'wp-theme-passport-and-phone' ) );
+		if ( $tags_list ) {
+			/* translators: 1: list of tags. */
+			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'wp-theme-passport-and-phone' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+		}
+
+		edit_post_link(
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'wp-theme-passport-and-phone' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
+			),
+			'<span class="edit-link">',
+			'</span>'
+		);
+	}
+endif;
+
 if ( ! function_exists( 'wp_theme_passport_and_phone_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
@@ -66,10 +97,10 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_entry_footer' ) ) :
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'wp-theme-passport-and-phone' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'wp-theme-passport-and-phone' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'wp-theme-passport-and-phone' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( '%1$s', 'wp-theme-passport-and-phone' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 

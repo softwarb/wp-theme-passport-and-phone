@@ -2,6 +2,11 @@
 // @import "../layout/sidebar-content";
 
 /*--------------------------------------------------------------
+## Header and footer
+--------------------------------------------------------------*/
+@import "primary/header-and-footer";
+
+/*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
 @import "primary/posts-and-pages";
@@ -10,3 +15,33 @@
 ## Comments
 --------------------------------------------------------------*/
 @import "primary/comments";
+
+/*--------------------------------------------------------------
+## Wigits
+--------------------------------------------------------------*/
+@import "primary/wigits";
+
+body {
+  font-family: $font-family-body;
+  * {
+    letter-spacing: 0.01em;
+  }
+
+}
+h1:not(.site-title), h2, h3, h4, h5, h6, .tags-links, .edit-link {
+  font-family: $font-family-heading;
+}
+
+
+@media print{
+  .heateorSssClear, .heateor_sss_sharing_container, // social sharing
+  .widget-area, .post-navigation, .comments-area, .site-footer 
+  {
+    display:none;
+  }
+  img {
+    max-width: 50vw !important;
+    display: block;
+    margin: auto;
+  }
+}

@@ -1,3 +1,10 @@
+$color_primary: #3399FF;
+$color_primary-contrast: white;
+$color_primary_light: #d6eaff;
+
+$color_header_text: #404040;
+$color_header_background: white;
+
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
@@ -8,8 +15,8 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
+$color__link: $color_primary; //royalblue;
+$color__link-visited: $color__link;
 $color__link-hover: midnightblue;
 $color__text-main: #404040;
 

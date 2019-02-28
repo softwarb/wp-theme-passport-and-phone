@@ -2,3 +2,13 @@
 @import "typography";
 @import "structure";
 @import "columns";
+
+$default-block-spacing: 20px;
+$half-block-spacing: 10px;
+$double-block-spacing: 40px;
+
+$desktop-post-feed-width: 350px;
+$desktop-post-individual-width: 740px;
+
+$font-family-heading: "Cabin", sans-serif;
+$font-family-body: "Lora", serif;
