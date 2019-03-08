@@ -9,13 +9,17 @@
     li.heateorSssSharingRound {
       display: inline-flex;
       flex-grow: 1;
+      + li {
+        margin-right: 8px !important;
+        &:last-child, &:nth-last-child(2) {
+          margin-right: 0 !important;
+        }
+      }
       &:first-child {
-        // buffer
         display: none;
       }
       &:last-child {
         flex-grow: 0;
-        // display: none;
         .heateorSssTotalShareCount, .heateorSssTotalShareText {
           font-family: $font-family-heading;
           color: $color_header_text;
@@ -31,6 +35,8 @@
       }
       i {
         width: 100% !important;
+        margin: 0;
+        border-radius: 5px;
       }
     }
   }
@@ -42,29 +48,29 @@ br + .heateorSssClear + .heateor_sss_sharing_container.heateor_sss_horizontal_sh
   margin-bottom: $default-block-spacing;
 }
 
-.heateor_sss_sharing_container.heateor_sss_vertical_sharing.heateor_sss_bottom_sharing {
+.heateor_sss_sharing_container.heateor_sss_vertical_sharing, .heateor_sss_bottom_sharing, .heateor_sss_mobile_footer {
   // floating sharing
-  display: none !important;
-}
-
-.heateor_sss_mobile_footer {
   display: none !important;
 }
 
 @media screen and (min-width: 768px) {
   .heateor_sss_sharing_container.heateor_sss_horizontal_sharing {
     // top and bottom sharing
-    li.heateorSssSharingRound + li {
-      margin-left: 8px !important;
-    }
-    i {
-      border-radius: 5px;
+    ul.heateor_sss_sharing_ul {
+      li.heateorSssSharingRound {
+        + li {
+          margin-right: 12px !important;
+          &:nth-last-child(2) {
+            margin-right: 4px !important;
+          }
+        }
+      }
     }
   }
 }
 
 @media screen and (min-width: 900px) {
-  .heateor_sss_sharing_container.heateor_sss_vertical_sharing.heateor_sss_bottom_sharing {
+  .heateor_sss_sharing_container.heateor_sss_vertical_sharing {
     // floating sharing
     display: block !important;
     top: 125px !important;

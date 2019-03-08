@@ -66,7 +66,7 @@ figure > * {
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	// margin: 0 0 1.5em;
 }
 
 .updated:not(.published) {
@@ -237,6 +237,9 @@ body.single-post {
 			margin: auto;
 			max-height: 100vh;
 			width: auto;
+		}
+		.post .wp-block-image img {
+			max-width: 640px;
 		}
 	}
 

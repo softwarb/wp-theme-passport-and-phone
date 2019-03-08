@@ -28,10 +28,10 @@
 				?>
 		</div>.site-info -->
 		<div class="site-social">
-			<a href="https://www.facebook.com/passportandphone/"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/facebook.svg" alt="Facebook"></a>
-			<a href="https://www.instagram.com/passportphone/"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/instagram.svg" alt="Instagram"></a>
-			<a href="https://twitter.com/passportandphone"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/twitter.svg" alt="Twitter"></a>
-			<a href="https://www.pinterest.com/passportandphone/"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/pinterest.svg" alt="Pinterest"></a>
+			<a href="https://www.facebook.com/passportandphone/" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/facebook.svg" alt="Facebook"></a>
+			<a href="https://www.instagram.com/passportphone/" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/instagram.svg" alt="Instagram"></a>
+			<a href="https://twitter.com/passport_phone" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/twitter.svg" alt="Twitter"></a>
+			<a href="https://www.pinterest.com/passportandphone/" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/pinterest.svg" alt="Pinterest"></a>
 		</div>
 		<div class="site-copyright">
 			<span>Copyright © 2019 Passport &amp; Phone.</span> <span>All rights reserved.</span>
