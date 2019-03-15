@@ -87,9 +87,6 @@ figure > * {
 .tags-links {
 	a {
 		text-decoration: none;
-		&::before{
-			content: '#';
-		}
 	}
 }
 

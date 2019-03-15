@@ -15,23 +15,23 @@
 
 	<footer id="colophon" class="site-footer">
 		<!-- <div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wp-theme-passport-and-phone' ) ); ?>">
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'passport-and-phone' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'wp-theme-passport-and-phone' ), 'WordPress' );
+				printf( esc_html__( 'Proudly powered by %s', 'passport-and-phone' ), 'WordPress' );
 				?>
 			</a>
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'wp-theme-passport-and-phone' ), 'wp-theme-passport-and-phone', '<a href="http://softwarb.com">Softwarb Limited</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'passport-and-phone' ), 'passport-and-phone', '<a href="http://softwarb.com">Softwarb Limited</a>' );
 				?>
 		</div>.site-info -->
 		<div class="site-social">
-			<a href="https://www.facebook.com/passportandphone/" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/facebook.svg" alt="Facebook"></a>
-			<a href="https://www.instagram.com/passportphone/" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/instagram.svg" alt="Instagram"></a>
-			<a href="https://twitter.com/passport_phone" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/twitter.svg" alt="Twitter"></a>
-			<a href="https://www.pinterest.com/passportandphone/" target="_blank"><img src="/wp-content/themes/wp-theme-passport-and-phone/assets/social/pinterest.svg" alt="Pinterest"></a>
+			<a href="https://www.facebook.com/passportandphone/" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/facebook.svg" alt="Facebook" width="44" height="44"></a>
+			<a href="https://www.instagram.com/passportphone/" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/instagram.svg" alt="Instagram" width="44" height="44"></a>
+			<a href="https://twitter.com/passport_phone" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/twitter.svg" alt="Twitter" width="44" height="44"></a>
+			<a href="https://www.pinterest.com/passportandphone/" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/pinterest.svg" alt="Pinterest" width="44" height="44"></a>
 		</div>
 		<div class="site-copyright">
 			<span>Copyright © 2019 Passport &amp; Phone.</span> <span>All rights reserved.</span>

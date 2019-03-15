@@ -7,6 +7,18 @@
  * @package Passport_&_Phone
  */
 
+/**
+ * remove unwanted css loaded from wordpress & plugins
+ */
+add_action( 'wp_print_styles', 'remove_styles', 100 );
+function remove_styles() {
+	wp_deregister_style( 'heateor_sss_frontend_css' ); // sassy-social-share
+	wp_deregister_style( 'heateor_sss_sharing_default_svg' ); // sassy-social-share
+	wp_dequeue_style( 'wp-block-library' ); // gutenberg https://actualwizard.com/how-to-remove-the-wordpress-gutenberg-stylesheet
+	wp_dequeue_style( 'wp-block-library-theme' ); // gutenberg
+}
+add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 ); // jetpack https://css-tricks.com/snippets/wordpress/removing-jetpack-css/
+
 if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -20,9 +32,9 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Passport & Phone, use a find and replace
-		 * to change 'wp-theme-passport-and-phone' to the name of your theme in all the template files.
+		 * to change 'passport-and-phone' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'wp-theme-passport-and-phone', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'passport-and-phone', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -44,7 +56,7 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'wp-theme-passport-and-phone' ),
+			'menu-1' => esc_html__( 'Primary', 'passport-and-phone' ),
 		) );
 
 		/*
@@ -94,7 +106,7 @@ function wp_theme_passport_and_phone_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'wp_theme_passport_and_phone_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'wp_theme_passport_and_phone_content_width', 740 );
 }
 add_action( 'after_setup_theme', 'wp_theme_passport_and_phone_content_width', 0 );
 
@@ -105,9 +117,9 @@ add_action( 'after_setup_theme', 'wp_theme_passport_and_phone_content_width', 0 
  */
 function wp_theme_passport_and_phone_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'wp-theme-passport-and-phone' ),
+		'name'          => esc_html__( 'Sidebar', 'passport-and-phone' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'wp-theme-passport-and-phone' ),
+		'description'   => esc_html__( 'Add widgets here.', 'passport-and-phone' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -120,11 +132,11 @@ add_action( 'widgets_init', 'wp_theme_passport_and_phone_widgets_init' );
  * Enqueue scripts and styles.
  */
 function wp_theme_passport_and_phone_scripts() {
-	wp_enqueue_style( 'wp-theme-passport-and-phone-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'passport-and-phone-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'wp-theme-passport-and-phone-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'passport-and-phone-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'wp-theme-passport-and-phone-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'passport-and-phone-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
