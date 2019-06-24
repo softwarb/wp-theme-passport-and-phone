@@ -33,15 +33,21 @@
 			<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/travel-tips/" style="color:white;">Travel Tips</a></li>
 			<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/travel-blog/" style="color:white;">Travel Blog</a></li>
 		</ul></div></nav>
-		
 		<div class="site-social">
-			<a href="https://www.facebook.com/passportandphone/" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/facebook.svg" alt="Facebook" width="44" height="44"></a>
-			<a href="https://www.instagram.com/passportphone/" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/instagram.svg" alt="Instagram" width="44" height="44"></a>
-			<a href="https://twitter.com/passport_phone" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/twitter.svg" alt="Twitter" width="44" height="44"></a>
-			<a href="https://www.pinterest.com/passportandphone/" target="_blank"><img src="/wp-content/themes/passport-and-phone/assets/social/pinterest.svg" alt="Pinterest" width="44" height="44"></a>
+			<?php
+				$assets_directory = get_template_directory_uri() . "/assets/social/";
+				$atags = 
+					// '<a href="https://www.facebook.com/passportandphone/" target="_blank"><img src="' . $assets_directory . 'facebook.svg" alt="Facebook" width="44" height="44"></a>' .
+					'<a href="https://www.pinterest.com/passportandphone/" target="_blank"><img src="' . $assets_directory . 'pinterest.svg" alt="Pinterest" width="44" height="44"></a>' .
+					'<a href="https://www.instagram.com/passportphone/" target="_blank"><img src="' . $assets_directory . 'instagram.svg" alt="Instagram" width="44" height="44"></a>' .
+					'<a href="https://twitter.com/passportandphon/" target="_blank"><img src="' . $assets_directory . 'twitter.svg" alt="Twitter" width="44" height="44"></a>' .
+					'';
+				echo $atags
+			?>
 		</div>
 		<div class="site-copyright">
-			<span>Copyright © 2019 Passport &amp; Phone.</span> <span>All rights reserved.</span>
+			<span>Copyright © 2019 Passport &amp; Phone.</span>
+			<!-- <span>All rights reserved.</span> -->
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

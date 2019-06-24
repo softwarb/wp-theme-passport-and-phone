@@ -1,0 +1,8 @@
+.shared-counts-wrap.style-buttons {
+  display: flex;
+  a.shared-counts-button {
+    flex-grow: 1;
+    border-radius: 8px;
+    margin-right: 8px;
+  }
+}

@@ -12,12 +12,22 @@
  */
 add_action( 'wp_print_styles', 'remove_styles', 100 );
 function remove_styles() {
-	wp_deregister_style( 'heateor_sss_frontend_css' ); // sassy-social-share
-	wp_deregister_style( 'heateor_sss_sharing_default_svg' ); // sassy-social-share
+	// either use wp_deregister_style or wp_dequeue_style, depending on how the plugin added the css
 	wp_dequeue_style( 'wp-block-library' ); // gutenberg https://actualwizard.com/how-to-remove-the-wordpress-gutenberg-stylesheet
 	wp_dequeue_style( 'wp-block-library-theme' ); // gutenberg
 }
 add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 ); // jetpack https://css-tricks.com/snippets/wordpress/removing-jetpack-css/
+
+/**
+ * Plugin: shared counts, Add On: Pinterest Image
+ * Pinterest Sharing Image on pages
+ * @see https://github.com/billerickson/Shared-Counts-Pinterest-Image
+ */
+function be_pinterest_image_on_pages( $post_types ) {
+	$post_types[] = 'page';
+	return $post_types;
+}
+add_filter( 'shared_counts_pinterest_image_post_types', 'be_pinterest_image_on_pages' );
 
 if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 	/**

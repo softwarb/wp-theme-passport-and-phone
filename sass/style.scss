@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Softwarb Limited
 Author URI: http://softwarb.com
 Description: A custom theme for passportandphone.com
-Version: 1.0.4
+Version: 1.0.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: passport-and-phone
@@ -55,7 +55,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
-@import "plugins/sassy-social-share";
+@import "plugins/shared-counts";
 
 /*--------------------------------------------------------------
 # Normalize
