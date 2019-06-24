@@ -24,6 +24,9 @@
 			?>
 			<div class="entry-meta">
 				<?php
+					if ( is_singular() ) {
+						wp_theme_passport_and_phone_posted_by();
+					}
 					wp_theme_passport_and_phone_tag_list();
 				?>
 			</div><!-- .entry-meta -->

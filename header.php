@@ -43,16 +43,20 @@
 				<p class="site-description"><?php echo $wp_theme_passport_and_phone_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'passport-and-phone' ); ?></button> -->
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
+		<div style="height: 8px;"></div> <!-- // todo remove -->
+		<?php // todo remove when adding header back
+			return; // todo remove
+			// todo uncomment all of the below
+			// <nav id="site-navigation" class="main-navigation">
+			// 	<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'passport-and-phone' ); ?></button> -->
+			// 	<?php
+			// 	wp_nav_menu( array(
+			// 		'theme_location' => 'menu-1',
+			// 		'menu_id'        => 'primary-menu',
+			// 	) );
+			// 	?>
+			// </nav><!-- #site-navigation -->
+		?> // todo remove
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

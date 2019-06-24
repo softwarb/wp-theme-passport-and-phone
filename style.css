@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Softwarb Limited
 Author URI: http://softwarb.com
 Description: A custom theme for passportandphone.com
-Version: 1.0.3
+Version: 1.0.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: passport-and-phone
@@ -363,9 +363,6 @@ div.heateorSssTotalShareCount {
 }
 .heateor_sss_sharing_container.heateor_sss_horizontal_sharing ul.heateor_sss_sharing_ul li.heateorSssSharingRound:first-child {
   display: none;
-}
-.heateor_sss_sharing_container.heateor_sss_horizontal_sharing ul.heateor_sss_sharing_ul li.heateorSssSharingRound:last-child {
-  flex-grow: 0;
 }
 .heateor_sss_sharing_container.heateor_sss_horizontal_sharing ul.heateor_sss_sharing_ul li.heateorSssSharingRound:last-child .heateorSssTotalShareCount, .heateor_sss_sharing_container.heateor_sss_horizontal_sharing ul.heateor_sss_sharing_ul li.heateorSssSharingRound:last-child .heateorSssTotalShareText {
   font-family: "Cabin", sans-serif;
@@ -1410,7 +1407,7 @@ body.hfeed .post .post-thumbnail img {
   body.hfeed .post {
     width: 350px;
     display: inline-block;
-    margin: 20px 10px;
+    margin: 0 10px 20px;
     vertical-align: top;
   }
   body.hfeed .post .post-thumbnail {

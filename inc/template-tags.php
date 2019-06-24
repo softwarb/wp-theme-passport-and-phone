@@ -40,13 +40,23 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function wp_theme_passport_and_phone_posted_by() {
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'passport-and-phone' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
+		if (strcasecmp('passportandphone', get_the_author_meta('user_login')) == 0) {
+			echo ''; // hide author for username=passportandphone
+		} else {
+			$byline = sprintf(
+				/* translators: %s: post author. */
+				esc_html_x( 'Written by %s', 'post author', 'passport-and-phone' ),
+				get_the_author_meta('display_name')
+			);
+			echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		}
+		// $byline = sprintf(
+		// 	/* translators: %s: post author. */
+		// 	esc_html_x( 'by %s', 'post author', 'passport-and-phone' ),
+		// 	'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		// );
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		// echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
@@ -60,7 +70,7 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_tag_list' ) ) :
 		$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'passport-and-phone' ) );
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'passport-and-phone' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links"> ' . esc_html__( '%1$s', 'passport-and-phone' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 
 		edit_post_link(

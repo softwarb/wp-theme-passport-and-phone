@@ -13,11 +13,11 @@
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
+		<?php if ( false && 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php
-			wp_theme_passport_and_phone_posted_on();
-			wp_theme_passport_and_phone_posted_by();
+			// wp_theme_passport_and_phone_posted_on();
+			// wp_theme_passport_and_phone_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>

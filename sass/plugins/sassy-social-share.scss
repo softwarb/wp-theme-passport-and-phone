@@ -152,7 +152,6 @@ div.heateorSssTotalShareCount {
         display: none;
       }
       &:last-child {
-        flex-grow: 0;
         .heateorSssTotalShareCount, .heateorSssTotalShareText {
           font-family: $font-family-heading;
           color: $color_header_text;

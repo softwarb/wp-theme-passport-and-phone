@@ -213,7 +213,7 @@ body.single-post {
 		.post {
 			width: $desktop-post-feed-width;
 			display: inline-block;
-			margin: $default-block-spacing $half-block-spacing;
+			margin: 0 $half-block-spacing $default-block-spacing;
 			vertical-align: top;
 			.post-thumbnail {
 				width: $desktop-post-feed-width;
