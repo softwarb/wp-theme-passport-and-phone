@@ -15,6 +15,9 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
+			if (!has_post_thumbnail()) {
+				echo '<hr />';
+			}
 			the_post();
 
 			get_template_part( 'template-parts/content', get_post_type() );

@@ -13,44 +13,45 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<!-- <div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'passport-and-phone' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'passport-and-phone' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'passport-and-phone' ), 'passport-and-phone', '<a href="http://softwarb.com">Softwarb Limited</a>' );
-				?>
-		</div>.site-info -->
+	<footer class="site-footer">
 
-		<!-- todo, delete nav. at the bottom temporaily -->
-		<nav id="site-navigation" class="main-navigation"><div class="menu-menu-container"><ul id="primary-menu" class="menu">
-			<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/travel-tips/" style="color:white;">Travel Tips</a></li>
-			<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/travel-blog/" style="color:white;">Travel Blog</a></li>
-		</ul></div></nav>
-		<div class="site-social">
+  	<div class="site-social">
 			<?php
 				$assets_directory = get_template_directory_uri() . "/assets/social/";
-				$atags = 
-					// '<a href="https://www.facebook.com/passportandphone/" target="_blank"><img src="' . $assets_directory . 'facebook.svg" alt="Facebook" width="44" height="44"></a>' .
-					'<a href="https://www.pinterest.com/passportandphone/" target="_blank"><img src="' . $assets_directory . 'pinterest.svg" alt="Pinterest" width="44" height="44"></a>' .
-					'<a href="https://www.instagram.com/passportphone/" target="_blank"><img src="' . $assets_directory . 'instagram.svg" alt="Instagram" width="44" height="44"></a>' .
-					'<a href="https://twitter.com/passportandphon/" target="_blank"><img src="' . $assets_directory . 'twitter.svg" alt="Twitter" width="44" height="44"></a>' .
-					'';
-				echo $atags
+			  $social_menu = wp_get_nav_menu_items( get_nav_menu_locations()['menu-social'], array(
+					'theme_location' => 'menu-social',
+					'container' => 'div',
+					'container_id' => '',
+					'container_class' => 'nav-footer',
+					'items_wrap' => '<ul>%3$s</ul>',
+				));
+
+				foreach ($social_menu as $social_media) {
+					$title = strtolower($social_media->title);
+					if ( in_array($title, ['facebook', 'instagram', 'pinterest', 'twitter']) ) {
+						$url = $social_media->url;
+  					echo '<a href="' . $url . '" target="_blank"><img src="' . $assets_directory . $title . '.svg" alt="' . $title . '" width="44" height="44"></a>';
+					}
+				}
 			?>
 		</div>
+
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'menu-footer',
+				'container' => 'div',
+				'container_id' => '',
+				'container_class' => 'nav-footer',
+				'items_wrap' => '<ul>%3$s</ul>',
+			) );
+		?>
+
 		<div class="site-copyright">
 			<span>Copyright © 2019 Passport &amp; Phone.</span>
-			<!-- <span>All rights reserved.</span> -->
 		</div>
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+
+	</footer>
+</div>
 
 <?php wp_footer(); ?>
 

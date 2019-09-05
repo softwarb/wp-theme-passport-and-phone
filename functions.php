@@ -7,28 +7,9 @@
  * @package Passport_&_Phone
  */
 
-/**
- * remove unwanted css loaded from wordpress & plugins
- */
-add_action( 'wp_print_styles', 'remove_styles', 100 );
-function remove_styles() {
-	// either use wp_deregister_style or wp_dequeue_style, depending on how the plugin added the css
-	wp_dequeue_style( 'wp-block-library' ); // gutenberg https://actualwizard.com/how-to-remove-the-wordpress-gutenberg-stylesheet
-	wp_dequeue_style( 'wp-block-library-theme' ); // gutenberg
+function my_css_attributes_filter($var) {
+  return is_array($var) ? array_intersect($var, array('current-menu-item')) : '';
 }
-add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 ); // jetpack https://css-tricks.com/snippets/wordpress/removing-jetpack-css/
-
-/**
- * Plugin: shared counts, Add On: Pinterest Image
- * Pinterest Sharing Image on pages
- * @see https://github.com/billerickson/Shared-Counts-Pinterest-Image
- */
-function be_pinterest_image_on_pages( $post_types ) {
-	$post_types[] = 'page';
-	return $post_types;
-}
-add_filter( 'shared_counts_pinterest_image_post_types', 'be_pinterest_image_on_pages' );
-
 if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -64,9 +45,15 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// remove class & id from WordPress generated menu.
+		add_filter('nav_menu_css_class', '__return_false');
+		add_filter('nav_menu_item_id', '__return_false');
+
+		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'passport-and-phone' ),
+			'menu-header' => esc_html__( 'Header', 'passport-and-phone' ),
+			'menu-footer' => esc_html__( 'Footer', 'passport-and-phone' ),
+			'menu-social'  => esc_html__( 'Social Menu', 'passport-and-phone' ),
 		) );
 
 		/*

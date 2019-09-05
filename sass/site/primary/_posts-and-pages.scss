@@ -192,15 +192,9 @@ body.single-post {
 	h4 {
 		font-size: 26px;
 	}
-	body.single-post .post, .site-main .post-navigation, .comments-area, .widget-area {
+	body.single-post .post, body .page, .site-main .post-navigation, .comments-area, .widget-area {
 		max-width: $desktop-post-individual-width;
 		margin: auto;
-	}
-	.site-header {
-		.site-title {
-			font-size: 34px;
-			line-height: 34px;
-		}
 	}
 	.entry-header {
 		text-align: center;

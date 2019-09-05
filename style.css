@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Softwarb Limited
 Author URI: http://softwarb.com
 Description: A custom theme for passportandphone.com
-Version: 1.0.5
+Version: 1.0.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: passport-and-phone
@@ -188,18 +188,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   src: local("Cabin Bold"), local("Cabin-Bold"), url(https://fonts.gstatic.com/s/cabin/v13/u-480qWljRw-PdeL2uhluylEeQ5J.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-/*--------------------------------------------------------------
-# Plugins
---------------------------------------------------------------*/
-.shared-counts-wrap.style-buttons {
-  display: flex;
-}
-.shared-counts-wrap.style-buttons a.shared-counts-button {
-  flex-grow: 1;
-  border-radius: 8px;
-  margin-right: 8px;
-}
-
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -758,7 +746,7 @@ a:hover, a:focus, a:active {
   color: midnightblue;
 }
 a:focus {
-  outline: thin dotted;
+  outline: none;
 }
 a:hover, a:active {
   outline: 0;
@@ -767,68 +755,43 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  width: 100%;
-  margin: auto;
+.nav-header, .nav-footer {
+  color: inherit;
 }
-.main-navigation ul {
-  display: none;
+.nav-header ul, .nav-footer ul {
   list-style: none;
   padding-left: 0;
   width: fit-content;
   margin: auto;
 }
-.main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+.nav-header ul ul, .nav-footer ul ul {
   position: absolute;
-  top: 100%;
-  left: -999em;
   z-index: 99999;
-}
-.main-navigation ul ul ul {
+  background: white;
+  border-left: 8px solid white;
+  border-right: 8px solid white;
+  margin-left: -8px;
+  margin-right: -8px;
   left: -999em;
-  top: 0;
 }
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-  left: 100%;
-}
-.main-navigation ul ul a {
-  width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.nav-header ul li:hover > ul,
+.nav-header ul li.focus > ul, .nav-footer ul li:hover > ul,
+.nav-footer ul li.focus > ul {
   left: auto;
 }
-.main-navigation li {
+.nav-header li, .nav-footer li {
   display: inline-block;
 }
-.main-navigation li + li {
+.nav-header li + li, .nav-footer li + li {
   margin-left: 16px;
 }
-.main-navigation li a {
-  color: #404040;
-}
-.main-navigation li a:visited {
-  color: #404040;
-}
-.main-navigation a {
+.nav-header a, .nav-footer a {
   display: block;
   text-decoration: none;
 }
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
-
-.menu-toggle {
-  display: none;
-}
-
-.main-navigation ul {
-  display: block;
+.nav-header a:active, .nav-header a:hover, .nav-header a:link, .nav-header a:visited, .nav-footer a:active, .nav-footer a:hover, .nav-footer a:link, .nav-footer a:visited {
+  color: inherit;
+  outline: 0;
 }
 
 .site-main .comment-navigation,
@@ -966,23 +929,18 @@ a:hover, a:active {
 .site-header {
   position: relative;
   background: white;
-  padding: 16px 0 12px 0;
-}
-.site-header .site-title a, .site-header .site-description, .site-header .site-navigation a {
   color: #404040;
-  text-decoration: none;
-}
-.site-header .site-title a:visited, .site-header .site-description:visited, .site-header .site-navigation a:visited {
-  color: #404040;
+  padding: 16px 0 12px;
 }
 .site-header .site-title {
   text-align: center;
-  margin: 0;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
   font-size: 24px;
   line-height: 24px;
 }
 .site-header .site-title a {
+  color: #404040;
+  text-decoration: none;
   line-height: inherit;
   font-size: inherit;
   font-weight: bold;
@@ -990,18 +948,14 @@ a:hover, a:active {
 }
 
 .site-footer {
+  padding: 20px;
   background-color: #3399FF;
   color: white;
-  padding: 20px;
-}
-.site-footer a {
-  color: white;
+  font-family: "Cabin", sans-serif;
 }
 .site-footer .site-social {
-  display: flex;
-  text-align: center;
-  max-width: 225px;
   margin: 20px auto;
+  width: fit-content;
 }
 .site-footer .site-social a {
   flex-grow: 1;
@@ -1009,15 +963,21 @@ a:hover, a:active {
   border-radius: 50%;
   width: fit-content;
   height: fit-content;
+  margin: 0 10px;
 }
 .site-footer .site-copyright {
-  font-family: "Cabin", sans-serif;
   text-align: center;
 }
-.site-footer .site-copyright span {
-  display: inline-block;
+.site-footer .nav-footer {
+  margin: 20px auto;
 }
 
+@media screen and (min-width: 768px) {
+  .site-header .site-title {
+    font-size: 34px;
+    line-height: 34px;
+  }
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -1181,14 +1141,9 @@ body.hfeed .post .post-thumbnail img {
     font-size: 26px;
   }
 
-  body.single-post .post, .site-main .post-navigation, .comments-area, .widget-area {
+  body.single-post .post, body .page, .site-main .post-navigation, .comments-area, .widget-area {
     max-width: 740px;
     margin: auto;
-  }
-
-  .site-header .site-title {
-    font-size: 34px;
-    line-height: 34px;
   }
 
   .entry-header {
