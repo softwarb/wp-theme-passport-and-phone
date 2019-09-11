@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Softwarb Limited
 Author URI: http://softwarb.com
 Description: A custom theme for passportandphone.com
-Version: 1.0.6
+Version: 1.0.7
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: passport-and-phone
@@ -951,7 +951,6 @@ a:hover, a:active {
   padding: 20px;
   background-color: #3399FF;
   color: white;
-  font-family: "Cabin", sans-serif;
 }
 .site-footer .site-social {
   margin: 20px auto;
@@ -981,29 +980,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.comments-area, .entry-footer {
-  display: none;
-}
-
-p, ul, ol {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-ol, ul {
-  margin-left: 40px;
-}
-
-p, p > *, li {
-  font-size: 17px;
-  line-height: 27px;
-}
-
-h1 {
-  font-size: 34px;
-}
-
-h2 {
+h1, h2 {
   font-size: 30px;
 }
 
@@ -1015,15 +992,22 @@ h4 {
   font-size: 22px;
 }
 
-ul.spaced li, ol.spaced li {
+p, p > *, li, .entry-meta {
+  font-size: 17px;
+  line-height: 27px;
+}
+
+p, ul, ol {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-ul.spaced li:first-child, ol.spaced li:first-child {
-  margin-top: 0px;
+
+ol, ul {
+  margin-left: 40px;
 }
-ul.spaced li:last-child, ol.spaced li:last-child {
-  margin-bottom: 0px;
+ol.spaced li, ul.spaced li {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 figure > * {
@@ -1041,14 +1025,6 @@ figure > * {
 }
 .entry-content aside :last-child {
   margin-bottom: 0;
-}
-
-.sticky {
-  display: block;
-}
-
-.updated:not(.published) {
-  display: none;
 }
 
 .page-links {
@@ -1124,12 +1100,7 @@ body.hfeed .post .post-thumbnail img {
 }
 
 @media screen and (min-width: 768px) {
-  p, p > *, li {
-    font-size: 19px;
-    line-height: 34px;
-  }
-
-  h2 {
+  h1, h2 {
     font-size: 34px;
   }
 
@@ -1139,6 +1110,11 @@ body.hfeed .post .post-thumbnail img {
 
   h4 {
     font-size: 26px;
+  }
+
+  p, p > *, li, .entry-meta {
+    font-size: 19px;
+    line-height: 34px;
   }
 
   body.single-post .post, body .page, .site-main .post-navigation, .comments-area, .widget-area {
@@ -1213,20 +1189,26 @@ body * {
   letter-spacing: 0.01em;
 }
 
-h1:not(.site-title), h2, h3, h4, h5, h6, .tags-links, .edit-link {
+h1:not(.site-title), h2, h3, h4, h5, h6, .site-footer, .tags-links, .edit-link {
   font-family: "Cabin", sans-serif;
 }
 
 @media print {
-  .heateorSssClear, .heateor_sss_sharing_container,
-.widget-area, .post-navigation, .comments-area, .site-footer {
-    display: none;
+  .site-navigation, .widget-area, .post-navigation, .comments-area, .site-footer {
+    display: none !important;
+  }
+
+  p, span, li {
+    font-size: 24px;
+    line-height: 42px;
   }
 
   img {
+    width: auto !important;
+    height: auto !important;
     max-width: 50vw !important;
-    display: block;
-    margin: auto;
+    display: block !important;
+    margin: auto !important;
   }
 }
 /*--------------------------------------------------------------

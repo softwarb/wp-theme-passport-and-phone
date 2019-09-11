@@ -28,20 +28,25 @@ body {
   }
 
 }
-h1:not(.site-title), h2, h3, h4, h5, h6, .tags-links, .edit-link {
+h1:not(.site-title), h2, h3, h4, h5, h6, .site-footer, .tags-links, .edit-link {
   font-family: $font-family-heading;
 }
 
 
 @media print{
-  .heateorSssClear, .heateor_sss_sharing_container, // social sharing
-  .widget-area, .post-navigation, .comments-area, .site-footer 
-  {
-    display:none;
+  .site-navigation, .widget-area, .post-navigation, .comments-area, .site-footer {
+    display: none !important;
+  }
+  p, span, li {
+    font-size: 24px;
+    line-height: 42px;
   }
   img {
+    width: auto !important;
+    height: auto !important;
     max-width: 50vw !important;
-    display: block;
-    margin: auto;
+    // max-height: 30vw !important;
+    display: block !important;
+    margin: auto !important;
   }
 }

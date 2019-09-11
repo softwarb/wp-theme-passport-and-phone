@@ -14,14 +14,14 @@
 
 get_header();
 ?>
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<main id="main" class="site-main">
 
 		<?php
 		while ( have_posts() ) :
 			if (!has_post_thumbnail()) {
 				echo '<hr />';
 			}
+			
     	the_post();
 
 			get_template_part( 'template-parts/content', 'page' );
@@ -34,8 +34,7 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</main>
 
 <?php
 get_sidebar();

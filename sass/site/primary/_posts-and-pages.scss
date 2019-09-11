@@ -1,25 +1,4 @@
-.comments-area, .entry-footer {
-	display: none;
-	// todo styling
-}
-
-
-p, ul, ol { // img that isn't featured image
-  margin-top: $default-block-spacing;
-	margin-bottom: $default-block-spacing;
-}
-ol, ul {
-	margin-left: $double-block-spacing;
-}
-
-p, p > *, li {
-	font-size: 17px;
-	line-height: 27px;
-}
-h1 {
-	font-size: 34px;
-}
-h2 {
+h1, h2 {
 	font-size: 30px;
 }
 h3 {
@@ -29,18 +8,28 @@ h4 {
 	font-size: 22px;
 }
 
-ul.spaced, ol.spaced {
-	li {
-    margin-top: $default-block-spacing;
+p, p > *, li, .entry-meta {
+	font-size: 17px;
+	line-height: 27px;
+}
+
+p, ul, ol { // img that isn't featured image
+	margin-top: $default-block-spacing;
+	margin-bottom: $default-block-spacing;
+}
+
+ol, ul {
+	margin-left: $double-block-spacing;
+	&.spaced li {
+		// custom class needs to be manually added to a list in the wordpress editor 
+		// seperated list items to match <p>
+		margin-top: $default-block-spacing;
 		margin-bottom: $default-block-spacing;
-		&:first-child {
-			margin-top: 0px;
-		}
-		&:last-child {
-			margin-bottom: 0px;
-		}
 	}
-} 
+}
+
+
+
 
 figure > * {
 	display: block;
@@ -58,25 +47,6 @@ figure > * {
 	:last-child {
 		margin-bottom: 0;
 	}
-}
-
-.sticky {
-	display: block;
-}
-
-.post,
-.page {
-	// margin: 0 0 1.5em;
-}
-
-.updated:not(.published) {
-	display: none;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-	// margin: 1.5em 0 0;
 }
 
 .page-links {
@@ -153,18 +123,8 @@ body.hfeed {
 	}
 }
 
-body.single-post {
-	// single post
-	.post {
-		.post-thumbnail {
-			// height: calc(3 / 4 * 100vw);
-		}
-	}
-}
 
-.page {
-	
-}
+
 
 .entry-content {
 	.wp-block-image {
@@ -179,11 +139,7 @@ body.single-post {
 
 // desktop
 @media screen and (min-width: 768px) {
-	p, p > *, li {
-		font-size: 19px;
-    line-height: 34px;
-	}
-	h2 {
+	h1, h2 {
 		font-size: 34px;
 	}
 	h3 {
@@ -192,6 +148,10 @@ body.single-post {
 	h4 {
 		font-size: 26px;
 	}
+	p, p > *, li, .entry-meta {
+		font-size: 19px;
+		line-height: 34px;
+	}
 	body.single-post .post, body .page, .site-main .post-navigation, .comments-area, .widget-area {
 		max-width: $desktop-post-individual-width;
 		margin: auto;
@@ -199,6 +159,8 @@ body.single-post {
 	.entry-header {
 		text-align: center;
 	}
+	
+
 	body.hfeed {
 		// post feed
 		.site-main {

@@ -9,18 +9,18 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="post">
  	<?php wp_theme_passport_and_phone_post_thumbnail(); ?>
 	
 	<header class="entry-header">
 		<?php
-		if ( is_singular() ) :
+		if ( is_singular() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
+		} else {
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+		}
 		
-		if ( 'post' === get_post_type() ) :
+		if ( 'post' === get_post_type() ) {
 			?>
 			<div class="entry-meta">
 				<?php
@@ -29,13 +29,14 @@
 					}
 					wp_theme_passport_and_phone_tag_list();
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+			</div>
+		  <?php 
+	  } ?>
+	</header>
 
 	<div class="entry-content">
 		<?php
-		if ( is_singular() ) :
+		if ( is_singular() ) {
 			the_content( sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
@@ -53,10 +54,10 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'passport-and-phone' ),
 				'after'  => '</div>',
 			) );
-		endif;
+		}
 
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer">
 		<?php 
@@ -64,5 +65,5 @@
 				wp_theme_passport_and_phone_entry_footer();
 			endif;
 		?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

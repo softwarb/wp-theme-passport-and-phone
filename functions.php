@@ -19,6 +19,20 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function wp_theme_passport_and_phone_setup() {
+
+   	// remove class & id from WordPress generated Menu.
+		add_filter('nav_menu_css_class', '__return_false');
+		add_filter('nav_menu_item_id', '__return_false');
+
+   	// remove class from WordPress generated Featured Image.
+		function wps_post_thumbnail_remove_class($output) {
+			$output = preg_replace('/class=".*?"/', '', $output);
+			return $output;
+		}
+		add_filter('post_thumbnail_html', 'wps_post_thumbnail_remove_class');
+
+
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -44,10 +58,6 @@ if ( ! function_exists( 'wp_theme_passport_and_phone_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-
-		// remove class & id from WordPress generated menu.
-		add_filter('nav_menu_css_class', '__return_false');
-		add_filter('nav_menu_item_id', '__return_false');
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
